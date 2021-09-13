@@ -57,7 +57,7 @@ If (($CredentialPath -ne $null) -and ((Test-Path -Path $CredentialPath\$storedke
 Connect-ExchangeOnline -Credential $globaladmincreds
 clear
 
-#define output paths
+#define paths
 $datestring     = ((get-date).tostring("yyyy-MM-dd"))
 $domains        = try {Get-AcceptedDomain -ErrorAction Stop} catch {write-error "Not connected to Exchange Online. This may indicate the credentials have changed."; exit}
 $tenant         = (Get-AcceptedDomain | Where-Object {$_.Default}).name
@@ -69,7 +69,7 @@ $CredentialPath = "$tenantpath\credentials"
 $XLSreport      = "$reportspath\$tenant-report-$datestring.xlsx"
 
 $IPStackAPIKeyPath = "$DesktopPath\MailSecurityReview\IPStackAPIKey.txt"
-If (!(Test-Path -path $snapshotpath)){Write-Error "IPStack API key not found. Make sure the key file exists at $IPStackAPIKeyPath. "; exit}
+If (!(Test-Path -path $snapshotpath)){Write-Error "IPStack API key not found. Make sure the key file exists at $IPStackAPIKeyPath. "; Read-Host -Prompt "Press Enter to exit"; exit}
 $IPStackAPIKey = get-content -path $IPStackAPIKeyPath
 
 #create output paths
