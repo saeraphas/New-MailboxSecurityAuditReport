@@ -24,7 +24,8 @@
 param ($CredentialPath)
 
 #install the necessary modules if they aren't installed already
-If (!(Get-Module -ListAvailable -Name ExchangePowershell)) { Install-Module ExchangePowershell -scope CurrentUser -Force } 
+#If (!(Get-Module -ListAvailable -Name ExchangePowershell)) { Install-Module ExchangePowershell -scope CurrentUser -Force } 
+If (!(Get-Module -ListAvailable -Name ExchangeOnlineManagement)) { Install-Module ExchangeOnlineManagement -RequiredVersion 2.0.5 -scope CurrentUser -Force } 
 If (!(Get-Module -ListAvailable -Name AzureAD)) { Install-Module AzureAD -scope CurrentUser -Force } 
 If (!(Get-Module -ListAvailable -Name ImportExcel)) { Install-Module ImportExcel -scope CurrentUser -Force } 
 import-module ImportExcel
