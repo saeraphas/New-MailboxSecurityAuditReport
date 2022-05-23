@@ -98,7 +98,8 @@ $DeliveryRuleResultObject = @()
 
 #used with old remote powershell method
 #$mailboxes = Get-Mailbox -ResultSize Unlimited
-$mailboxes = Get-ExoMailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited -Properties PrimarySmtpAddress, DisplayName, ForwardingAddress, ForwardingSMTPAddress, DeliverToMailboxandForward
+#$mailboxes = Get-ExoMailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited -Properties PrimarySmtpAddress, DisplayName, ForwardingAddress, ForwardingSMTPAddress, DeliverToMailboxandForward
+$mailboxes = Get-ExoMailbox -ResultSize Unlimited -Properties PrimarySmtpAddress, DisplayName, ForwardingAddress, ForwardingSMTPAddress, DeliverToMailboxandForward
 
 $stepcounter = 0
 
